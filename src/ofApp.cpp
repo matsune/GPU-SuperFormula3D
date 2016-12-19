@@ -152,6 +152,7 @@ void ofApp::update(){
 
 //--------------------------------------------------------------
 void ofApp::draw(){
+    ofSetWindowTitle(ofToString(ofGetFrameRate()));
     
     ofPushStyle();
     cam.begin();
