@@ -1,6 +1,8 @@
 #pragma once
 
 #include "ofMain.h"
+#include "ofxGui.h"
+#include "PingPong.h"
 
 class ofApp : public ofBaseApp{
 
@@ -20,5 +22,19 @@ class ofApp : public ofBaseApp{
 		void windowResized(int w, int h);
 		void dragEvent(ofDragInfo dragInfo);
 		void gotMessage(ofMessage msg);
-		
+    
+    PingPong pingPong;
+    ofShader updatePosition, render;
+    ofVboMesh mesh;
+    int texRes;
+    float stepX;
+    float stepY;
+    
+    /// Camera
+    ofEasyCam cam;
+    
+    /// GUI
+    ofxPanel panel;
+    ofxIntSlider mode, colorMode;
+    ofxFloatSlider smoothing, a, b, m, n1, n2, n3;
 };
