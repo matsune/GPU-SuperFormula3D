@@ -37,4 +37,9 @@ class ofApp : public ofBaseApp{
     ofxPanel panel;
     ofxIntSlider mode, colorMode;
     ofxFloatSlider smoothing, a, b, m, n1, n2, n3;
+    ofxFloatSlider rotation;
+    
+    private:
+    
+    float degree;
 };

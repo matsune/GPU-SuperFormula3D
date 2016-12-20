@@ -90,6 +90,7 @@ void ofApp::setup(){
     panel.setup();
     panel.add(mode.setup("Mode", 0, 0, 2));
     panel.add(colorMode.setup("Color", 0, 0, 1));
+    panel.add(rotation.setup("Rotation", 0.1, 0, 0.5));
     panel.add(smoothing.setup("smoothing", 5, 1, 15));
     panel.add(a.setup("a", 1, 0, 5));
     panel.add(b.setup("b", 1, 0, 5));
@@ -148,6 +149,11 @@ void ofApp::update(){
         default:
             break;
     }
+    
+    degree += rotation;
+    if (degree > 360) {
+        degree -= 360;
+    }
 }
 
 //--------------------------------------------------------------
@@ -169,6 +175,7 @@ void ofApp::draw(){
     }
     ofEnableDepthTest();
     
+    ofRotate(degree);
     render.begin();
     render.setUniformTexture("u_positionsTex", pingPong.src->getTexture(0), 0);
     switch (mode) {
