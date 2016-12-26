@@ -6,6 +6,7 @@ void ofApp::setup(){
     ofBackground(0);
     
     cam.setupPerspective();
+    cam.setNearClip(10);
     
     /*
      Shader
